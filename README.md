@@ -6,6 +6,11 @@
 
 # Live Projects
 <!-- projects starts -->
-
-
+* [Telegram Push Ninja](https://t.me/PushNinjaBot) - 13.04.2022
+* [Learny](https://learny.schneider.today) - 09.02.2022
+* [Youniq.Art](https://youniq.art) - 13.10.2021
+* [Web.Support](https://web.support) - 01.07.2021
+* [Nethercalculator](https://nethercalculator.com) - 01.07.2020
+* [ToiletAPI](https://toiletapi.com) - 01.07.2020
+* [SimpleDot](https://simpledot.ch) - 10.07.2019
 <!-- projects ends -->
