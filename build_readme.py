@@ -6,7 +6,7 @@ import os
 root = pathlib.Path(__file__).parent.resolve()
 
 
-def replace_writing(content, marker, chunk):
+def replace_marker(content, marker, chunk):
     r = re.compile(
         r'<!\-\- {} starts \-\->.*<!\-\- {} ends \-\->'.format(marker, marker),
         re.DOTALL,
@@ -16,7 +16,7 @@ def replace_writing(content, marker, chunk):
     return r.sub(chunk, content)
 
 
-def fetch_writing():
+def fetch_projects():
     url = "http://strapi.schneider.today/api/projects"
 
     payload={}
@@ -47,13 +47,13 @@ def fetch_writing():
 if __name__ == '__main__':
     readme_path = root / 'README.md'
     readme = readme_path.open(encoding='utf-8').read()
-    entries = fetch_writing()
+    entries = fetch_projects()
     print(f'{entries}')
     entries_md = '\n'.join(
         ['* [{title}]({url}) - {published}'.format(**entry) for entry in entries]
     )
 
     # Update entries
-    rewritten_entries = replace_writing(readme, 'projects', entries_md)
+    rewritten_entries = replace_marker(readme, 'projects', entries_md)
     print(rewritten_entries)
     readme_path.open('w', encoding="utf-8").write(rewritten_entries)
